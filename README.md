@@ -1,37 +1,94 @@
-## Welcome to GitHub Pages
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+<style>
+    *{padding:0;
+    margin :0;
+    }
+    .title{text-align: center;font-size: 20px;}
+    .content{width:320px;margin:10px auto 20px auto;min-height:
+    300px;cursor: no-drop }
+</style>
 
-You can use the [editor on GitHub](https://github.com/vuejspyf/qq/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<body>
+    <div style="text-align:center;font-size:20px;font-weight:bold;
+    margin-bottom:30px;"> 给大家发福利</div>
+    <div>
+        <div class="title">挂一下试一试,<a href="javascript:void(0)"onclick="window.location.reload()">在挂一次试一下</a></div>
+    
+    <div class="content">
+        <canvas></canvas>
+    </div>
+    </div>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+</body>
+<script src="./jquery.min.js"></script>
+<script>
+   /* s=11;
+    console.log(s);*/
+    var bodyStyle=document.body.style;
+ // connsole.log()
+ bodyStyle.mozUserSelect='none';
+ bodyStyle.webkitUserSelect='none';
+ var img=new Image();
+ var canvas=document.querySelector('canvas');
+canvas.style.backgroundColor='transparent';//透明
+canvas.style.position='absolute';
+var imgs=['1.jpg','2.jpg'];
+var num=Math.floor(Math.random()*2);
+img.src=imgs[num];
+//console.log(num)
+img.addEventListener('load',function(e){
+    var ctx;
+    var w=img.width,
+        h=img.height;
+        var offsetX=canvas.offsetLeft,
+            offsetY=canvas.offsetTop;
+        var mousedown=false;
+        function layer(ctx){
+            ctx.filllStyle='gray';
+            //矩形的方式填充  问题一怎么操作正方形？
+            ctx.fillRect(0,0,w,h);
+        }
+    //var offsetX=
+    function eventDown(e){//按下鼠标
+        e.preventDefault();
+        mousedown=true;
+    }
+    function eventUp(e){//松开鼠标
+        e.preventDefault();
+        mousedown=false;
+    }
+    function eventMove(e){//移动消除
+        e.preventDefault();
+        if(e.changedTouches){
+            e.changedTouches[e.changedTouches.length-1];//获取到当前节点的属性
+//单手指触发多手指
+        }
+        
+        var x=(e.clientX+document.body.scrollLeft||e.pageX())-offsetX||0,
+        y=(e.clientY+document.body.scrollTop||e.pageY())-offsetY||0;
+        with(ctx){
+            beginPath();
+            arc(x,y,10,0,Math.PI*2);
+            fill();
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vuejspyf/qq/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+        }
+    }
+canvas.width=w;
+canvas.height=h;
+canvas.style.backgroundImage='url('+img.src+')';
+ctx=canvas.getContext('2d');//2D的模式
+layer(ctx);//调用函数上颜色
+ctx.globalCompositeOperation='destination-out';
+canvas.addEventListener('touchstart',eventDown);
+canvas.addEventListener('touchend',eventUp);
+canvas.addEventListener('touchmove',eventMove);
+canvas.addEventListener('mousedown',eventDown);
+canvas.addEventListener('nouseup',eventUp);
+canvas.addEventListener('mousemove',eventMove);
+})
+</script>
+</html>
