@@ -70,9 +70,8 @@ img.addEventListener('load',function(e){
         with(ctx){
             beginPath();
             arc(x,y,10,0,Math.PI*2);
-            fill();
-        }
-    }
+            fill();    }
+ }
 canvas.width=w;
 canvas.height=h;
 canvas.style.backgroundImage='url('+img.src+')';
