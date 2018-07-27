@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,7 +16,8 @@
     <div style="text-align:center;font-size:20px;font-weight:bold;
     margin-bottom:30px;"> 给大家发福利</div>
     <div>
-        <div class="title">挂一下试一试,<a href="javascript:void(0)"onclick="window.location.reload()">在挂一次试一下</a></div>
+        <div class="title">挂一下试一试,
+         <a href="javascript:void(0)"onclick="window.location.reload()">在挂一次试一下</a></div>
     
     <div class="content">
         <canvas></canvas>
@@ -74,7 +75,6 @@ img.addEventListener('load',function(e){
             beginPath();
             arc(x,y,10,0,Math.PI*2);
             fill();
-
         }
     }
 canvas.width=w;
