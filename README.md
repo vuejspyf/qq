@@ -11,19 +11,16 @@
     .content{width:320px;margin:10px auto 20px auto;min-height:
     300px;cursor: no-drop }
 </style>
-
 <body>
     <div style="text-align:center;font-size:20px;font-weight:bold;
     margin-bottom:30px;"> 给大家发福利</div>
     <div>
         <div class="title">挂一下试一试,
          <a href="javascript:void(0)"onclick="window.location.reload()">在挂一次试一下</a></div>
-    
     <div class="content">
         <canvas></canvas>
     </div>
     </div>
-
 </body>
 <script src="./jquery.min.js"></script>
 <script>
@@ -68,7 +65,6 @@ img.addEventListener('load',function(e){
             e.changedTouches[e.changedTouches.length-1];//获取到当前节点的属性
 //单手指触发多手指
         }
-        
         var x=(e.clientX+document.body.scrollLeft||e.pageX())-offsetX||0,
         y=(e.clientY+document.body.scrollTop||e.pageY())-offsetY||0;
         with(ctx){
