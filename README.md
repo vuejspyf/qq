@@ -12,15 +12,14 @@
     300px;cursor: no-drop }
 </style>
 <body>
-    <div style="text-align:center;font-size:20px;font-weight:bold;
-    margin-bottom:30px;"> 给大家发福利</div>
+    <div style="text-align:center;font-size:20px;font-weight:bold;margin-bottom:30px;"> 给大家发福利</div>
     <div>
         <div class="title">挂一下试一试,
          <a href="javascript:void(0)"onclick="window.location.reload()">在挂一次试一下</a></div>
     <div class="content">
         <canvas></canvas>
     </div>
-    </div>
+    //</div>
 </body>
 <script src="./jquery.min.js"></script>
 <script>
