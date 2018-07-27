@@ -22,7 +22,7 @@
     </div>
     </div>
 </body>
-<script src="./jquery.min2.js"></script>
+<script src="./jquery.min.js"></script>
 <script>
    /* s=11;
     console.log(s);*/
